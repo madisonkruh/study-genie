@@ -1,6 +1,8 @@
 const openai = require("../config/openaiConfig");
 
-const generateNotes = async (topic) => {
+const generateNotes = async (req, res) => {
+  const { topic } = req.body;
+
   const notes = await openai.chat.completions.create({
     messages: [
       {
@@ -11,7 +13,9 @@ const generateNotes = async (topic) => {
     model: "gpt-4o-mini",
   });
 
-  console.log(notes.choices[0].message);
+  res.status(200).json({
+    notes: notes.choices[0].message,
+  });
 };
 
 module.exports = { generateNotes };

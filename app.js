@@ -1,9 +1,9 @@
-const readline = require("readline");
+const express = require("express");
 const { generateNotes } = require("./controllers/openaiController");
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
+const app = express();
+app.listen(4000, () => console.log("listening to requests on port 4000"));
 
-rl.question("Study Note Topic: \n", (topic) => generateNotes(topic));
+app.use(express.json());
+
+app.post("/openai/notes", generateNotes);
