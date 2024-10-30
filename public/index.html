@@ -1,0 +1,27 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Study Notes Generator</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/marked@3.0.7/marked.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <form class="notes-form">
+        <h2>Study Note Generator</h2>
+        <label for="topic">
+          <span>Enter a study topic...</span>
+          <input type="text" name="topic" required />
+          <button>Submit</button>
+        </label>
+      </form>
+
+      <div class="notes" style="display: none;"">
+      </div>
+    </div>
+
+    <script src="/index.js"></script>
+  </body>
+</html>
